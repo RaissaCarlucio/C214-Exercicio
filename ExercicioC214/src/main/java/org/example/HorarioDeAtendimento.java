@@ -5,24 +5,24 @@ import com.google.gson.JsonParser;
 
 public class HorarioDeAtendimento {
 
-    // Declarando a variavel auxiliar json
-    private String jsonData;
+    HorarioService horarioService;
 
-    //Construtor:
-    public HorarioDeAtendimento(String jsonData) {
-        this.jsonData = jsonData;
+    public HorarioDeAtendimento(HorarioService service){
+        this.horarioService = service;
     }
 
-    public AtendimentoInfo popularPagina() {
-        JsonObject jsonObject = JsonParser.parseString(jsonData).getAsJsonObject();
+    public AtendimentoInfo PaginaWeb() {
 
-        String nome = jsonObject.get("nomeDoProfessor").getAsString();
-        String horario = jsonObject.get("horarioDeAtendimento").getAsString();
-        String periodo = jsonObject.get("periodo").getAsString();
-        String sala = jsonObject.get("sala").getAsString();
-        String predio = getPredio(sala);
+        String horarioJson = horarioService.HorarioServico();
 
-        return new AtendimentoInfo(nome, horario, periodo, sala, predio);
+        JsonObject jsonObject = JsonParser.parseString(horarioJson).getAsJsonObject();
+
+
+        return new AtendimentoInfo(jsonObject.get("nomeDoProfessor").getAsString(),
+                jsonObject.get("horarioDeAtendimento").getAsString(),
+                jsonObject.get("periodo").getAsString(),
+                jsonObject.get("sala").getAsString(),
+                getPredio(jsonObject.get("sala").getAsString()));
     }
 
     // Se a sala for tal, o prédio é tal...

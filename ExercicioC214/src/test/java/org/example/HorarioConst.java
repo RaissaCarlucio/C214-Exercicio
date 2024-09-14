@@ -72,6 +72,13 @@ public class HorarioConst {
                     "\"periodo\": \"Integral\", \n " +
                     "\"sala\": \"9\", \n " +
                     "\"predio\": [\"2\"] }";
+
+    public static String Inexistente =
+            "{ \"nomeDoProfessor\": \"Samuel\", \n " +
+                    "\"horarioDeAtendimento\": \"13:30 - 15:00\", \n " +
+                    "\"periodo\": \"Integral\", \n " +
+                    "\"sala\": \"10\", \n " +
+                    "\"predio\": [\"2\"] }";
 }
 
 

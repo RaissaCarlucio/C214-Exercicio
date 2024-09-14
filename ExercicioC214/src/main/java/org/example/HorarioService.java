@@ -1,5 +1,5 @@
 package org.example;
 
 public interface HorarioService {
-    String HorarioServico();
+    public String busca(String nome);
 }

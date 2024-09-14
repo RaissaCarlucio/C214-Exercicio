@@ -2,7 +2,6 @@ package org.example;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
 public class HorarioDeAtendimento {
 
     HorarioService horarioService;
@@ -11,9 +10,9 @@ public class HorarioDeAtendimento {
         this.horarioService = service;
     }
 
-    public AtendimentoInfo PaginaWeb() {
+    public AtendimentoInfo PaginaWeb(String nome) {
 
-        String horarioJson = horarioService.HorarioServico();
+        String horarioJson = horarioService.busca(nome);
 
         JsonObject jsonObject = JsonParser.parseString(horarioJson).getAsJsonObject();
 
